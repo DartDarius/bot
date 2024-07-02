@@ -31,6 +31,6 @@ export function dateToCronFormat(time: Date, repeatInterval: REPEAT_INTERVAL) {
 }
 
 export function createTaskText(task: TaskDocument) {
-    const text = task.title + '\n' + task.text + ' \n' + TEXT.DESCRIPTION;
+    const text = task.title + '\n' + task.text + '\n\n' + TEXT.DESCRIPTION;
     return text;
 }
