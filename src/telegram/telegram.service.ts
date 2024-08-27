@@ -33,6 +33,7 @@ export class TelegramService {
                 chat_id: chatId,
                 message_id: messageId,
                 reply_markup: undefined,
+                parse_mode: 'Markdown',
             });
         } catch (error) {
             errorHandler(error);

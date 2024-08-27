@@ -2,10 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { TelegramService } from '../telegram/telegram.service';
 import { ConfigService } from '@nestjs/config';
 import * as TelegramBot from 'node-telegram-bot-api';
-import { Message, CallbackQuery } from 'node-telegram-bot-api';
-import { BotService } from '../bot/bot.service';
+import { CallbackQuery } from 'node-telegram-bot-api';
 import { format } from 'date-fns';
-import { BUTTON } from '../shared/constants';
 import { IPollingError } from '../shared/interfaces';
 import { errorHandler } from '../shared/errorHandlers';
 
@@ -48,7 +46,7 @@ export class PollingService {
         const messageId = msg.message?.message_id;
         const date = format(new Date(), 'dd.MM.yyyy HH:mm');
         const taskText = msg.message?.text?.split('\n').slice(1).join('\n');
-        const EditedText = `Задание выполнено ${date}` + '\n' + taskText;
+        const EditedText = `✅*Задание выполнено ${date}*` + '\n' + taskText;
         this.telegramService.editMessage(EditedText, chatId, messageId);
     }
 }
